@@ -124,7 +124,7 @@ Bash
 terraform destroy -auto-approve
 
 👤 Author
-Portfolio: Raafindra Wahyu Pratama / https://github.com/raafindra/cloud-engineering-roadmap
+Portfolio: Raafindra Wahyu Pratama / https://github.com/raafindra/devops-portfolio/tree/main/cloud-engineering-roadmap
 
 Role: Cloud / DevOps Engineer
 
