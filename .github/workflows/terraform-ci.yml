@@ -14,7 +14,7 @@ jobs:
     # Sesuaikan working-directory dengan folder letak file .tf Anda
     defaults:
       run:
-        working-directory: ./terraform
+        working-directory: ./cloud-engineering-roadmap/Terraform/capstone-project
 
     steps:
       - name: Checkout Code
