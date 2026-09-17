@@ -16,7 +16,7 @@ variable "environment" {
 }
 
 variable "project_name" {
-  type        = string
-  description = "Global prefix applied to all infrastructure resource naming."
-  default     = "paysecure"
+type        = string
+      default = "paysecure"
+  description = "Nama project"
 }
