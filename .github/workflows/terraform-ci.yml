@@ -1,0 +1,35 @@
+name: "Terraform CI - Syntax & Lint"
+
+on:
+  pull_request:
+    branches: [ "main" ]
+  push:
+    branches: [ "main" ]
+
+jobs:
+  validate:
+    name: "Lint & Validate Terraform"
+    runs-on: ubuntu-latest
+
+    # Sesuaikan working-directory dengan folder letak file .tf Anda
+    defaults:
+      run:
+        working-directory: ./terraform
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: 1.8.0
+
+      - name: Check Terraform Formatting
+        run: terraform fmt -check -recursive
+
+      - name: Initialize Terraform (Backend Disabled for Validation)
+        run: terraform init -backend=false
+
+      - name: Validate Terraform Syntax
+        run: terraform validate
