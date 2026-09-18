@@ -31,12 +31,12 @@ jobs:
       - name: Check Formatting
         run: terraform fmt -check -recursive
 
-      - name: Debug Exact OIDC Sub Claim
-        run: |
-          TOKEN=$(curl -sLS "${ACTIONS_ID_TOKEN_REQUEST_URL}&audience=sts.amazonaws.com" -H "User-Agent: actions/runner" -H "Authorization: bearer ${ACTIONS_ID_TOKEN_REQUEST_TOKEN}" | jq -r '.value')
-          echo "=== KLAIM SUBJEK ASLI DARI RUNNER ==="
-          echo "$TOKEN" | cut -d. -f2 | tr '_-' '/+' | base64 -d 2>/dev/null | jq -r '.sub'
-          echo "====================================="
+      #- name: Debug Exact OIDC Sub Claim
+      #  run: |
+      #    TOKEN=$(curl -sLS "${ACTIONS_ID_TOKEN_REQUEST_URL}&audience=sts.amazonaws.com" -H "User-Agent: actions/runner" -H "Authorization: bearer ${ACTIONS_ID_TOKEN_REQUEST_TOKEN}" | jq -r '.value')
+      #    echo "=== KLAIM SUBJEK ASLI DARI RUNNER ==="
+      #    echo "$TOKEN" | cut -d. -f2 | tr '_-' '/+' | base64 -d 2>/dev/null | jq -r '.sub'
+      #    echo "====================================="
 
       - name: Configure AWS Credentials via OIDC
         uses: aws-actions/configure-aws-credentials@v4
